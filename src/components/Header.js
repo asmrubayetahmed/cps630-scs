@@ -6,16 +6,19 @@ import {
     ShoppingCartIcon, 
     ShoppingCartoon,
 } from "@heroicons/react/outline";
-
+import { useRouter } from "next/router";
 
 function Header() {
+  //const [session] = useSession();
+  const router = useRouter();
+
   return (
     <header>
  {/* Top nav */} 
         <div class="flex items-center bg-black p-1 flex-grow py-2">
             <div>
                 <Image 
-                //src= 'https://links.papareact.com/f90'
+                onClick={() => router.push('/')}                
                 src='/../public/logo.jpg'
                 width={150}
                 height={40}
@@ -42,7 +45,7 @@ function Header() {
     </div>
 
     <div className="link">
-    <p className="font-extrabold md:text-sm">Sign up</p>
+    <p onClick={() => router.push('/signup')} className="font-extrabold md:text-sm">Sign up</p>
     </div>
 
     <div className="relative link flex items-center"> 
