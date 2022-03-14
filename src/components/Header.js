@@ -7,10 +7,12 @@ import {
     ShoppingCartoon,
 } from "@heroicons/react/outline";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import { selectItems } from '../slices/basketSlice';
 
 function Header() {
-  //const [session] = useSession();
   const router = useRouter();
+  //const items = useSelector(selectItems);
 
   return (
     <header>
@@ -52,8 +54,8 @@ function Header() {
     <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center rounded-full text-black font-bold">
       0
     </span>
-      <ShoppingCartIcon className="h-10"/> 
-      <p className="font-extrabold md:text-sm">Cart</p>
+      <ShoppingCartIcon onClick={() => router.push('/checkout')} className="h-10"/> 
+      <p onClick={() => router.push('/checkout')} className="font-extrabold md:text-sm">Cart</p>
     </div>
         
     </div>
@@ -71,7 +73,7 @@ function Header() {
               Kitchen
             </p>
             <p className="link"> 
-            Electrics
+            Electronics
             </p>
             <p className="link hidden lg:inline-flex"> 
             Appliances
